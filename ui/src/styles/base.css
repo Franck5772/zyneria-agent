@@ -19,8 +19,13 @@
   --panel: #12141a;
   --panel-strong: #1a1d25;
   --panel-hover: #262a35;
-  --chrome: rgba(18, 20, 26, 0.95);
-  --chrome-strong: rgba(18, 20, 26, 0.98);
+  --chrome: rgba(18, 20, 26, 0.85); /* Increased transparency */
+  --chrome-strong: rgba(18, 20, 26, 0.95);
+  
+  /* Glassmorphism */
+  --glass: rgba(26, 29, 37, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --backdrop-blur: blur(12px);
 
   /* Text - Slightly warmer */
   --text: #e4e4e7;

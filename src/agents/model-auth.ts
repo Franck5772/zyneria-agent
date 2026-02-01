@@ -187,7 +187,7 @@ export async function resolveApiKeyForProvider(params: {
           mode: mode === "oauth" ? "oauth" : mode === "token" ? "token" : "api-key",
         };
       }
-    } catch {}
+    } catch { }
   }
 
   const envResolved = resolveEnvApiKey(provider);
@@ -300,6 +300,8 @@ export function resolveEnvApiKey(provider: string): EnvApiKeyResult | null {
     venice: "VENICE_API_KEY",
     mistral: "MISTRAL_API_KEY",
     opencode: "OPENCODE_API_KEY",
+    deepseek: "DEEPSEEK_API_KEY",
+    perplexity: "PERPLEXITY_API_KEY",
   };
   const envVar = envMap[normalized];
   if (!envVar) {

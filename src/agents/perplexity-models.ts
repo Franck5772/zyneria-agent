@@ -1,0 +1,50 @@
+export const PERPLEXITY_MODELS = [
+    {
+        id: "sonar-reasoning-pro",
+        name: "Perplexity Sonar Reasoning Pro",
+        displayName: "Perplexity Sonar Reasoning Pro",
+        provider: "perplexity",
+        reasoning: true,
+        input: ["text"],
+        maxTokens: 8192,
+        contextWindow: 127_000,
+        cost: {
+            input: 2.0, // approx
+            output: 8.0,
+            cacheRead: 0,
+            cacheWrite: 0,
+        },
+    },
+    {
+        id: "sonar-reasoning",
+        name: "Perplexity Sonar Reasoning",
+        displayName: "Perplexity Sonar Reasoning",
+        provider: "perplexity",
+        reasoning: true,
+        input: ["text"],
+        maxTokens: 8192,
+        contextWindow: 127_000,
+        cost: {
+            input: 1.0,
+            output: 5.0,
+            cacheRead: 0,
+            cacheWrite: 0,
+        },
+    },
+    {
+        id: "sonar-pro",
+        name: "Perplexity Sonar Pro",
+        displayName: "Perplexity Sonar Pro",
+        provider: "perplexity",
+        reasoning: false,
+        input: ["text"],
+        maxTokens: 8192,
+        contextWindow: 200_000,
+        cost: {
+            input: 3.0,
+            output: 15.0,
+            cacheRead: 0,
+            cacheWrite: 0,
+        },
+    },
+];

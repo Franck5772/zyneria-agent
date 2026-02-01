@@ -5,8 +5,10 @@
    =========================================== */
 
 .card {
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
   border-radius: var(--radius-lg);
   padding: 20px;
   animation: rise 0.35s var(--ease-out) backwards;
@@ -236,8 +238,7 @@
   width: var(--theme-item);
   height: var(--theme-item);
   border-radius: var(--radius-full);
-  transform: translateY(-50%)
-    translateX(calc(var(--theme-index, 0) * (var(--theme-item) + var(--theme-gap))));
+  transform: translateY(-50%) translateX(calc(var(--theme-index, 0) * (var(--theme-item) + var(--theme-gap))));
   background: var(--accent);
   transition: transform var(--duration-normal) var(--ease-out);
   z-index: 0;
@@ -579,10 +580,12 @@
 }
 
 @keyframes compaction-pulse {
+
   0%,
   100% {
     opacity: 0.7;
   }
+
   50% {
     opacity: 1;
   }
@@ -1059,10 +1062,12 @@
 }
 
 @keyframes chatStreamPulse {
+
   0%,
   100% {
     border-color: var(--border);
   }
+
   50% {
     border-color: var(--accent);
   }
@@ -1092,7 +1097,7 @@
   height: 12px;
 }
 
-.chat-reading-indicator__dots > span {
+.chat-reading-indicator__dots>span {
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -1104,21 +1109,23 @@
   will-change: transform, opacity;
 }
 
-.chat-reading-indicator__dots > span:nth-child(2) {
+.chat-reading-indicator__dots>span:nth-child(2) {
   animation-delay: 0.15s;
 }
 
-.chat-reading-indicator__dots > span:nth-child(3) {
+.chat-reading-indicator__dots>span:nth-child(3) {
   animation-delay: 0.3s;
 }
 
 @keyframes chatReadingDot {
+
   0%,
   80%,
   100% {
     opacity: 0.4;
     transform: translateY(0);
   }
+
   40% {
     opacity: 1;
     transform: translateY(-3px);
@@ -1126,7 +1133,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .chat-reading-indicator__dots > span {
+  .chat-reading-indicator__dots>span {
     animation: none;
     opacity: 0.6;
   }
@@ -1495,4 +1502,117 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+/* ===========================================
+   Models View
+   =========================================== */
+
+.models-view {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fade-in 0.3s var(--ease-out);
+}
+
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.model-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  transition: all 0.2s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.model-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.model-card.active {
+  border-color: var(--accent);
+  background: linear-gradient(to bottom right, var(--card), rgba(255, 92, 92, 0.03));
+}
+
+.model-card__header {
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+}
+
+.model-card.active .model-card__header {
+  border-bottom-color: rgba(255, 92, 92, 0.1);
+}
+
+.model-card__icon {
+  width: 40px;
+  height: 40px;
+  background: var(--secondary);
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.model-card.active .model-card__icon {
+  background: var(--accent-subtle);
+  color: var(--accent);
+}
+
+.model-card__icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2px;
+}
+
+.model-card__meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.model-card__title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-strong);
+  margin-bottom: 4px;
+}
+
+.model-card__desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.model-card__status {
+  flex-shrink: 0;
+}
+
+.model-card__content {
+  padding: 20px;
+  background: var(--bg-elevated);
+}
+
+.model-card__content .field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.model-card__content input {
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 13px;
 }

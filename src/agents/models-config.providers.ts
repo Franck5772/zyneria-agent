@@ -13,9 +13,14 @@ import {
   SYNTHETIC_MODEL_CATALOG,
 } from "./synthetic-models.js";
 import { discoverVeniceModels, VENICE_BASE_URL } from "./venice-models.js";
+import { DEEPSEEK_MODELS } from "./deepseek-models.js";
+import { PERPLEXITY_MODELS } from "./perplexity-models.js";
 
 type ModelsConfig = NonNullable<OpenClawConfig["models"]>;
 export type ProviderConfig = NonNullable<ModelsConfig["providers"]>[string];
+
+const DEEPSEEK_BASE_URL = "https://api.deepseek.com";
+const PERPLEXITY_BASE_URL = "https://api.perplexity.ai";
 
 const MINIMAX_API_BASE_URL = "https://api.minimax.chat/v1";
 const MINIMAX_PORTAL_BASE_URL = "https://api.minimax.io/anthropic";
@@ -385,12 +390,28 @@ async function buildVeniceProvider(): Promise<ProviderConfig> {
   };
 }
 
-async function buildOllamaProvider(): Promise<ProviderConfig> {
+export async function buildOllamaProvider(): Promise<ProviderConfig> {
   const models = await discoverOllamaModels();
   return {
     baseUrl: OLLAMA_BASE_URL,
     api: "openai-completions",
     models,
+  };
+}
+
+function buildDeepSeekProvider(): ProviderConfig {
+  return {
+    baseUrl: DEEPSEEK_BASE_URL,
+    api: "openai-completions",
+    models: DEEPSEEK_MODELS,
+  };
+}
+
+function buildPerplexityProvider(): ProviderConfig {
+  return {
+    baseUrl: PERPLEXITY_BASE_URL,
+    api: "openai-completions",
+    models: PERPLEXITY_MODELS,
   };
 }
 
@@ -459,6 +480,20 @@ export async function resolveImplicitProviders(params: {
     resolveApiKeyFromProfiles({ provider: "ollama", store: authStore });
   if (ollamaKey) {
     providers.ollama = { ...(await buildOllamaProvider()), apiKey: ollamaKey };
+  }
+
+  const deepseekKey =
+    resolveEnvApiKeyVarName("deepseek") ??
+    resolveApiKeyFromProfiles({ provider: "deepseek", store: authStore });
+  if (deepseekKey) {
+    providers.deepseek = { ...buildDeepSeekProvider(), apiKey: deepseekKey };
+  }
+
+  const perplexityKey =
+    resolveEnvApiKeyVarName("perplexity") ??
+    resolveApiKeyFromProfiles({ provider: "perplexity", store: authStore });
+  if (perplexityKey) {
+    providers.perplexity = { ...buildPerplexityProvider(), apiKey: perplexityKey };
   }
 
   return providers;
