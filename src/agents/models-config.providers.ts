@@ -399,7 +399,11 @@ export async function buildOllamaProvider(): Promise<ProviderConfig> {
   };
 }
 
-models: DEEPSEEK_MODELS as ModelDefinitionConfig[],
+function buildDeepSeekProvider(): ProviderConfig {
+  return {
+    baseUrl: DEEPSEEK_BASE_URL,
+    api: "openai-completions",
+    models: DEEPSEEK_MODELS as ModelDefinitionConfig[],
   };
 }
 
