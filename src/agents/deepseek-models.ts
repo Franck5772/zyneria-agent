@@ -1,4 +1,4 @@
-import { ModelDefinitionConfig } from "../config/types.models";
+import type { ModelDefinitionConfig } from "../config/types.models.js";
 
 export const DEEPSEEK_MODELS: ModelDefinitionConfig[] = [
     {
