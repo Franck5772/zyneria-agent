@@ -5,7 +5,7 @@ export const DEEPSEEK_MODELS = [
         displayName: "DeepSeek R1",
         provider: "deepseek",
         reasoning: true,
-        input: ["text"],
+        input: ["text"] as const,
         maxTokens: 8192,
         contextWindow: 128_000,
         cost: {
@@ -21,7 +21,7 @@ export const DEEPSEEK_MODELS = [
         displayName: "DeepSeek V3",
         provider: "deepseek",
         reasoning: false,
-        input: ["text"],
+        input: ["text"] as const,
         maxTokens: 8192,
         contextWindow: 128_000,
         cost: {

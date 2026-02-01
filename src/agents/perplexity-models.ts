@@ -5,7 +5,7 @@ export const PERPLEXITY_MODELS = [
         displayName: "Perplexity Sonar Reasoning Pro",
         provider: "perplexity",
         reasoning: true,
-        input: ["text"],
+        input: ["text"] as const,
         maxTokens: 8192,
         contextWindow: 127_000,
         cost: {
@@ -21,7 +21,7 @@ export const PERPLEXITY_MODELS = [
         displayName: "Perplexity Sonar Reasoning",
         provider: "perplexity",
         reasoning: true,
-        input: ["text"],
+        input: ["text"] as const,
         maxTokens: 8192,
         contextWindow: 127_000,
         cost: {
@@ -37,7 +37,7 @@ export const PERPLEXITY_MODELS = [
         displayName: "Perplexity Sonar Pro",
         provider: "perplexity",
         reasoning: false,
-        input: ["text"],
+        input: ["text"] as const,
         maxTokens: 8192,
         contextWindow: 200_000,
         cost: {
