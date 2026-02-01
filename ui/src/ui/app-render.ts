@@ -131,20 +131,6 @@ export function renderApp(state: AppViewState) {
           >
             <span class="nav-collapse-toggle__icon">${icons.menu}</span>
           </button>
-        <div class="topbar-left">
-          <button
-            class="nav-collapse-toggle"
-            @click=${() =>
-      state.applySettings({
-        ...state.settings,
-        navCollapsed: !state.settings.navCollapsed,
-      })}
-            title="${state.settings.navCollapsed ? "Expand sidebar" : "Collapse sidebar"}"
-            aria-label="${state.settings.navCollapsed ? "Expand sidebar" : "Collapse sidebar"}"
-          >
-            <span class="nav-collapse-toggle__icon">${icons.menu}</span>
-          </button>
-        </div>
         </div>
         <div class="topbar-status">
           <div class="pill">
