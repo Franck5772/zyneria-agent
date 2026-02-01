@@ -4,8 +4,6 @@ export const DEEPSEEK_MODELS: ModelDefinitionConfig[] = [
     {
         id: "deepseek-reasoner",
         name: "DeepSeek R1",
-        displayName: "DeepSeek R1",
-        provider: "deepseek",
         reasoning: true,
         input: ["text"],
         maxTokens: 8192,
@@ -20,8 +18,6 @@ export const DEEPSEEK_MODELS: ModelDefinitionConfig[] = [
     {
         id: "deepseek-chat",
         name: "DeepSeek V3",
-        displayName: "DeepSeek V3",
-        provider: "deepseek",
         reasoning: false,
         input: ["text"],
         maxTokens: 8192,

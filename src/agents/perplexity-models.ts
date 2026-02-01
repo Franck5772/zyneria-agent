@@ -4,8 +4,6 @@ export const PERPLEXITY_MODELS: ModelDefinitionConfig[] = [
     {
         id: "sonar-reasoning-pro",
         name: "Perplexity Sonar Reasoning Pro",
-        displayName: "Perplexity Sonar Reasoning Pro",
-        provider: "perplexity",
         reasoning: true,
         input: ["text"],
         maxTokens: 8192,
@@ -20,8 +18,6 @@ export const PERPLEXITY_MODELS: ModelDefinitionConfig[] = [
     {
         id: "sonar-reasoning",
         name: "Perplexity Sonar Reasoning",
-        displayName: "Perplexity Sonar Reasoning",
-        provider: "perplexity",
         reasoning: true,
         input: ["text"],
         maxTokens: 8192,
@@ -36,8 +32,6 @@ export const PERPLEXITY_MODELS: ModelDefinitionConfig[] = [
     {
         id: "sonar-pro",
         name: "Perplexity Sonar Pro",
-        displayName: "Perplexity Sonar Pro",
-        provider: "perplexity",
         reasoning: false,
         input: ["text"],
         maxTokens: 8192,
