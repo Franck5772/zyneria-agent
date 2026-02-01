@@ -403,7 +403,7 @@ function buildDeepSeekProvider(): ProviderConfig {
   return {
     baseUrl: DEEPSEEK_BASE_URL,
     api: "openai-completions",
-    models: DEEPSEEK_MODELS as ModelDefinitionConfig[],
+    models: DEEPSEEK_MODELS,
   };
 }
 
@@ -411,7 +411,7 @@ function buildPerplexityProvider(): ProviderConfig {
   return {
     baseUrl: PERPLEXITY_BASE_URL,
     api: "openai-completions",
-    models: PERPLEXITY_MODELS as ModelDefinitionConfig[],
+    models: PERPLEXITY_MODELS,
   };
 }
 

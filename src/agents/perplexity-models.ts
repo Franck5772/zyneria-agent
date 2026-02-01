@@ -1,11 +1,13 @@
-export const PERPLEXITY_MODELS = [
+import { ModelDefinitionConfig } from "../config/types.models";
+
+export const PERPLEXITY_MODELS: ModelDefinitionConfig[] = [
     {
         id: "sonar-reasoning-pro",
         name: "Perplexity Sonar Reasoning Pro",
         displayName: "Perplexity Sonar Reasoning Pro",
         provider: "perplexity",
         reasoning: true,
-        input: ["text"] as Array<"text" | "image">,
+        input: ["text"],
         maxTokens: 8192,
         contextWindow: 127_000,
         cost: {
@@ -21,7 +23,7 @@ export const PERPLEXITY_MODELS = [
         displayName: "Perplexity Sonar Reasoning",
         provider: "perplexity",
         reasoning: true,
-        input: ["text"] as Array<"text" | "image">,
+        input: ["text"],
         maxTokens: 8192,
         contextWindow: 127_000,
         cost: {
@@ -37,7 +39,7 @@ export const PERPLEXITY_MODELS = [
         displayName: "Perplexity Sonar Pro",
         provider: "perplexity",
         reasoning: false,
-        input: ["text"] as Array<"text" | "image">,
+        input: ["text"],
         maxTokens: 8192,
         contextWindow: 200_000,
         cost: {

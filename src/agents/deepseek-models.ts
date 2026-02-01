@@ -1,11 +1,13 @@
-export const DEEPSEEK_MODELS = [
+import { ModelDefinitionConfig } from "../config/types.models";
+
+export const DEEPSEEK_MODELS: ModelDefinitionConfig[] = [
     {
         id: "deepseek-reasoner",
         name: "DeepSeek R1",
         displayName: "DeepSeek R1",
         provider: "deepseek",
         reasoning: true,
-        input: ["text"] as Array<"text" | "image">,
+        input: ["text"],
         maxTokens: 8192,
         contextWindow: 128_000,
         cost: {
@@ -21,7 +23,7 @@ export const DEEPSEEK_MODELS = [
         displayName: "DeepSeek V3",
         provider: "deepseek",
         reasoning: false,
-        input: ["text"] as Array<"text" | "image">,
+        input: ["text"],
         maxTokens: 8192,
         contextWindow: 128_000,
         cost: {
