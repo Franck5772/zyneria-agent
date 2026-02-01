@@ -47,14 +47,13 @@ export function renderDebug(props: DebugProps) {
         <div class="stack" style="margin-top: 12px;">
           <div>
             <div class="muted">Status</div>
-            ${
-              securitySummary
-                ? html`<div class="callout ${securityTone}" style="margin-top: 8px;">
+            ${securitySummary
+      ? html`<div class="callout ${securityTone}" style="margin-top: 8px;">
                   Security audit: ${securityLabel}${info > 0 ? ` · ${info} info` : ""}. Run
-                  <span class="mono">openclaw security audit --deep</span> for details.
+                  <span class="mono">zyneria security audit --deep</span> for details.
                 </div>`
-                : nothing
-            }
+      : nothing
+    }
             <pre class="code-block">${JSON.stringify(props.status ?? {}, null, 2)}</pre>
           </div>
           <div>
@@ -85,7 +84,7 @@ export function renderDebug(props: DebugProps) {
             <textarea
               .value=${props.callParams}
               @input=${(e: Event) =>
-                props.onCallParamsChange((e.target as HTMLTextAreaElement).value)}
+      props.onCallParamsChange((e.target as HTMLTextAreaElement).value)}
               rows="6"
             ></textarea>
           </label>
@@ -93,18 +92,16 @@ export function renderDebug(props: DebugProps) {
         <div class="row" style="margin-top: 12px;">
           <button class="btn primary" @click=${props.onCall}>Call</button>
         </div>
-        ${
-          props.callError
-            ? html`<div class="callout danger" style="margin-top: 12px;">
+        ${props.callError
+      ? html`<div class="callout danger" style="margin-top: 12px;">
               ${props.callError}
             </div>`
-            : nothing
-        }
-        ${
-          props.callResult
-            ? html`<pre class="code-block" style="margin-top: 12px;">${props.callResult}</pre>`
-            : nothing
-        }
+      : nothing
+    }
+        ${props.callResult
+      ? html`<pre class="code-block" style="margin-top: 12px;">${props.callResult}</pre>`
+      : nothing
+    }
       </div>
     </section>
 
@@ -112,24 +109,23 @@ export function renderDebug(props: DebugProps) {
       <div class="card-title">Models</div>
       <div class="card-sub">Catalog from models.list.</div>
       <pre class="code-block" style="margin-top: 12px;">${JSON.stringify(
-        props.models ?? [],
-        null,
-        2,
-      )}</pre>
+      props.models ?? [],
+      null,
+      2,
+    )}</pre>
     </section>
 
     <section class="card" style="margin-top: 18px;">
       <div class="card-title">Event Log</div>
       <div class="card-sub">Latest gateway events.</div>
-      ${
-        props.eventLog.length === 0
-          ? html`
+      ${props.eventLog.length === 0
+      ? html`
               <div class="muted" style="margin-top: 12px">No events yet.</div>
             `
-          : html`
+      : html`
             <div class="list" style="margin-top: 12px;">
               ${props.eventLog.map(
-                (evt) => html`
+        (evt) => html`
                   <div class="list-item">
                     <div class="list-main">
                       <div class="list-title">${evt.event}</div>
@@ -140,10 +136,10 @@ export function renderDebug(props: DebugProps) {
                     </div>
                   </div>
                 `,
-              )}
+      )}
             </div>
           `
-      }
+    }
     </section>
   `;
 }

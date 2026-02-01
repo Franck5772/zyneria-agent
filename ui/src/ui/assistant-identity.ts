@@ -1,7 +1,7 @@
 const MAX_ASSISTANT_NAME = 50;
 const MAX_ASSISTANT_AVATAR = 200;
 
-export const DEFAULT_ASSISTANT_NAME = "Assistant";
+export const DEFAULT_ASSISTANT_NAME = "Zyneria AI";
 export const DEFAULT_ASSISTANT_AVATAR = "A";
 
 export type AssistantIdentity = {
@@ -12,8 +12,8 @@ export type AssistantIdentity = {
 
 declare global {
   interface Window {
-    __OPENCLAW_ASSISTANT_NAME__?: string;
-    __OPENCLAW_ASSISTANT_AVATAR__?: string;
+    __ZYNERIA_ASSISTANT_NAME__?: string;
+    __ZYNERIA_ASSISTANT_AVATAR__?: string;
   }
 }
 
@@ -40,7 +40,7 @@ export function resolveInjectedAssistantIdentity(): AssistantIdentity {
     return normalizeAssistantIdentity({});
   }
   return normalizeAssistantIdentity({
-    name: window.__OPENCLAW_ASSISTANT_NAME__,
-    avatar: window.__OPENCLAW_ASSISTANT_AVATAR__,
+    name: window.__ZYNERIA_ASSISTANT_NAME__,
+    avatar: window.__ZYNERIA_ASSISTANT_AVATAR__,
   });
 }

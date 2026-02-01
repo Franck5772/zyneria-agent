@@ -131,6 +131,15 @@ export function renderApp(state: AppViewState) {
           >
             <span class="nav-collapse-toggle__icon">${icons.menu}</span>
           </button>
+          <div class="brand">
+            <div class="brand-logo" style="color: var(--color-primary);">
+              ${icons.brain}
+            </div>
+            <div class="brand-text">
+              <div class="brand-title">ZYNERIA</div>
+              <div class="brand-sub">Management Console</div>
+            </div>
+          </div>
         </div>
         <div class="topbar-status">
           <div class="pill">
