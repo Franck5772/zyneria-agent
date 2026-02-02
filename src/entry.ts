@@ -7,7 +7,7 @@ import { isTruthyEnvValue, normalizeEnv } from "./infra/env.js";
 import { installProcessWarningFilter } from "./infra/warnings.js";
 import { attachChildProcessBridge } from "./process/child-process-bridge.js";
 
-process.title = "openclaw";
+process.title = "zyneria";
 installProcessWarningFilter();
 normalizeEnv();
 
@@ -57,7 +57,7 @@ function ensureExperimentalWarningSuppressed(): boolean {
 
   child.once("error", (error) => {
     console.error(
-      "[openclaw] Failed to respawn CLI:",
+      "[zyneria] Failed to respawn CLI:",
       error instanceof Error ? (error.stack ?? error.message) : error,
     );
     process.exit(1);
@@ -107,7 +107,7 @@ function normalizeWindowsArgv(argv: string[]): string[] {
     );
   };
   const next = [...argv];
-  for (let i = 1; i <= 3 && i < next.length; ) {
+  for (let i = 1; i <= 3 && i < next.length;) {
     if (isExecPath(next[i])) {
       next.splice(i, 1);
       continue;
@@ -119,7 +119,7 @@ function normalizeWindowsArgv(argv: string[]): string[] {
     return filtered;
   }
   const cleaned = [...filtered];
-  for (let i = 2; i < cleaned.length; ) {
+  for (let i = 2; i < cleaned.length;) {
     const arg = cleaned[i];
     if (!arg || arg.startsWith("-")) {
       i += 1;
@@ -140,7 +140,7 @@ if (!ensureExperimentalWarningSuppressed()) {
   const parsed = parseCliProfileArgs(process.argv);
   if (!parsed.ok) {
     // Keep it simple; Commander will handle rich help/errors after we strip flags.
-    console.error(`[openclaw] ${parsed.error}`);
+    console.error(`[zyneria] ${parsed.error}`);
     process.exit(2);
   }
 
@@ -154,7 +154,7 @@ if (!ensureExperimentalWarningSuppressed()) {
     .then(({ runCli }) => runCli(process.argv))
     .catch((error) => {
       console.error(
-        "[openclaw] Failed to start CLI:",
+        "[zyneria] Failed to start CLI:",
         error instanceof Error ? (error.stack ?? error.message) : error,
       );
       process.exitCode = 1;
